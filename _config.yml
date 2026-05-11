@@ -1,0 +1,21 @@
+title: Claude Code Plugins Official
+description: รวมปลั๊กอินทางการของ Anthropic สำหรับ Claude Code (ภาษาไทย)
+theme: jekyll-theme-cayman
+lang: th
+
+show_downloads: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
