@@ -1,16 +1,16 @@
-// Brutalist Terminal — Three.js wireframe geometry scene
-// Floating wireframe cubes / octahedrons / dodecahedrons in phosphor green
+// Paper IDE — Three.js wireframe geometry scene
+// Floating wireframe primitives in deep sage + amber on cream paper bg
 // Respects prefers-reduced-motion + tab visibility
 
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  // Skip scene
+  // skip
 } else {
   import('three').then(THREE => {
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0a0e0a, 0.035);
+    scene.fog = new THREE.FogExp2(0xfaf7ea, 0.03);
 
     const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.z = 16;
@@ -19,10 +19,10 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Wireframe materials — phosphor green + amber
-    const phosphorMat = new THREE.LineBasicMaterial({ color: 0x80c080, transparent: true, opacity: 0.55 });
-    const phosphorBrightMat = new THREE.LineBasicMaterial({ color: 0xa0e6a0, transparent: true, opacity: 0.7 });
-    const amberMat = new THREE.LineBasicMaterial({ color: 0xffb347, transparent: true, opacity: 0.5 });
+    // Wireframe materials — deep sage + amber on cream
+    const sageMat = new THREE.LineBasicMaterial({ color: 0x3a5a3a, transparent: true, opacity: 0.4 });
+    const sageDeepMat = new THREE.LineBasicMaterial({ color: 0x2a4528, transparent: true, opacity: 0.45 });
+    const amberMat = new THREE.LineBasicMaterial({ color: 0xa86c14, transparent: true, opacity: 0.4 });
 
     const meshes = [];
 
@@ -42,7 +42,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       meshes.push(line);
     }
 
-    // Layout: cubes, octahedrons, dodecahedrons scattered
     const geometries = [
       () => new THREE.BoxGeometry(1, 1, 1),
       () => new THREE.OctahedronGeometry(0.8, 0),
@@ -51,7 +50,7 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       () => new THREE.TetrahedronGeometry(0.9, 0),
     ];
 
-    const mats = [phosphorMat, phosphorBrightMat, phosphorMat, amberMat, phosphorMat];
+    const mats = [sageMat, sageDeepMat, sageMat, amberMat, sageMat];
 
     for (let i = 0; i < 9; i++) {
       const geomFn = geometries[i % geometries.length];
@@ -65,8 +64,8 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       addWireframe(geomFn(), mats[matIdx], scale, pos);
     }
 
-    // Plus a grid floor far back
-    const gridHelper = new THREE.GridHelper(40, 40, 0x2a3a30, 0x1d2620);
+    // Soft grid floor in cream/sage
+    const gridHelper = new THREE.GridHelper(40, 40, 0xd4c890, 0xe8e0c2);
     gridHelper.position.y = -6;
     gridHelper.position.z = -8;
     gridHelper.rotation.x = Math.PI / 8;
@@ -94,7 +93,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         m.rotation.z += m.userData.rotSpeedZ;
         m.position.x += m.userData.driftX;
         m.position.y += m.userData.driftY;
-        // Wrap
         if (m.position.x > 14) m.position.x = -14;
         if (m.position.x < -14) m.position.x = 14;
         if (m.position.y > 10) m.position.y = -10;
