@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'th' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}">
+
+  <!-- Fonts: JetBrains Mono (mono), Major Mono Display (display caps), IBM Plex Sans Thai (Thai body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Major+Mono+Display&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <meta name="theme-color" content="#0a0e0a">
+</head>
+<body>
+
+<!-- Three.js background canvas -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- Brutalist terminal header -->
+<header class="term-header">
+  <div class="term-header__inner">
+    <div class="term-prompt">
+      <span class="term-prompt__user">root</span><span class="term-prompt__at">@</span><span class="term-prompt__host">anthropic</span><span class="term-prompt__colon">:</span><span class="term-prompt__path">~/plugins</span><span class="term-prompt__sign">$</span>
+      <span class="term-prompt__cmd">cat plugins.md</span>
+    </div>
+    <div class="term-header__meta">
+      <span class="term-badge">v1.0 / TH</span>
+      <span class="term-badge term-badge--accent">▓▓▓░ 35 PLUGINS</span>
+    </div>
+  </div>
+  <div class="term-header__rule">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</div>
+</header>
+
+<!-- Main content -->
+<main class="term-main">
+  <article class="term-article">
+    {{ content }}
+  </article>
+</main>
+
+<!-- Footer -->
+<footer class="term-footer">
+  <div class="term-footer__rule">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+  <div class="term-footer__inner">
+    <div class="term-footer__col">
+      <div class="term-footer__label">SOURCE</div>
+      <div class="term-footer__value"><a href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a></div>
+    </div>
+    <div class="term-footer__col">
+      <div class="term-footer__label">TRANSLATION</div>
+      <div class="term-footer__value"><a href="https://github.com/wutgii-worawut/claude-plugins-thai">wutgii-worawut/claude-plugins-thai</a></div>
+    </div>
+    <div class="term-footer__col">
+      <div class="term-footer__label">CURATED BY</div>
+      <div class="term-footer__value">apex-oracle 🌳</div>
+    </div>
+  </div>
+  <div class="term-footer__signature">▓▓░ EOF — return 0</div>
+</footer>
+
+<!-- Three.js scene -->
+<script type="module" src="{{ '/assets/js/scene.js' | relative_url }}"></script>
+
+</body>
+</html>

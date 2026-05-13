@@ -1,15 +1,9 @@
-# Jekyll build output
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-
-# Ruby dependencies
-Gemfile.lock
 vendor/
-
-# Editor
-.vscode/
-.idea/
-*.swp
+.bundle/
+Gemfile.lock
+node_modules/
 .DS_Store

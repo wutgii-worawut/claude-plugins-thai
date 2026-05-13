@@ -1,8 +1,10 @@
-title: Claude Code Plugins Official
+title: CLAUDE_PLUGINS.OFFICIAL
 description: รวมปลั๊กอินทางการของ Anthropic สำหรับ Claude Code (ภาษาไทย)
-theme: jekyll-theme-cayman
+url: "https://wutgii-worawut.github.io"
+baseurl: "/claude-plugins-thai"
 lang: th
 
+# No theme — use custom _layouts/default.html
 show_downloads: false
 
 markdown: kramdown
@@ -13,6 +15,12 @@ kramdown:
 plugins:
   - jekyll-relative-links
   - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
 
 exclude:
   - README.md
